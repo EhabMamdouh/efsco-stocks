@@ -24,11 +24,13 @@ app.get('/scrape', async (req, res) => {
         const sharePrices = $('.profile-header-price').map((i, el) => $(el).text().trim()).get();
         const changePrices = $('.profile-header-change-percent.success').map((i, el) => $(el).text().trim()).get();
         const prices = $('.box-value').map((i, el) => $(el).text().trim()).get();
+        const date = $('.profile-update-container').map((i, el) => $(el).text().trim()).get();
 
         const result = {
             share_prices: sharePrices,
             change_prices: changePrices,
-            prices: prices
+            prices: prices,
+            date: date
         };
 
         res.json(result);
